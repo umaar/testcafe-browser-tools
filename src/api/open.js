@@ -35,11 +35,13 @@ function getWinOpenCommand (browserInfo, pageUrl) {
 }
 
 function getMacOpenCommand (browserInfo, pageUrl) {
-    return Mustache.render(browserInfo.macOpenCmdTemplate, {
+    const command = Mustache.render(browserInfo.macOpenCmdTemplate, {
         path:    browserInfo.path,
         cmd:     browserInfo.cmd,
         pageUrl: pageUrl
     });
+    console.log('\n\nRunning:', command, '\n');
+    return command;
 }
 
 function getLinuxOpenCommand (browserInfo, pageUrl) {
